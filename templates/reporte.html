@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- <div>
+        <h1><a href="/">It's coming home!</a></h1>
+    </div> -->
+
+<h2 class="ui center aligned icon header">
+  <i class="circular comment icon"></i>
+  Reporte de comentarios
+</h2>
+
+<div class="ui container">
+
+<!-- Dropdown periodo -->
+    <label class="four wide field"><span style="font-weight: bold"> Búsqueda por periodo: </span> </label>
+    <div class="ui vertical menu">
+      <div class="ui dropdown item">
+        Selecciona el mes
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a href="/reporte" class="item">TODOS</a>
+          <a href="/reporteoct" class="item">Octubre</a>
+          <a href="/reportesep" class="item">Septiembre</a>
+          <a href="/reporteago" class="item">Agosto</a>
+          <a href="/reporteago" class="item">Julio</a>
+          <a href="/reporteago" class="item">Junio</a>
+          <a href="/reporteago" class="item">Mayo</a>
+          <a href="/reporteago" class="item">Abril</a>
+          <a href="/reporteago" class="item">Marzo</a>
+          <a href="/reporteago" class="item">Febrero</a>
+          <a href="/reporteago" class="item">Enero</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+<table class="ui basic table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>Comentario</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  {% for mireviews in mireviews %}
+  <tbody>
+    <tr>
+      <td>{{ mireviews.id }}</td>
+      <td>{{ mireviews.reviewer }}</td>
+      <td>{{ mireviews.comment }}</td>
+      <td>{{ mireviews.createdTime }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+
+<br>
+{% endblock %}
